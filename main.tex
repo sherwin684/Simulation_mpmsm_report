@@ -1,0 +1,181 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper, total={6in, 10in}]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage[parfill]{parskip}
+\usepackage{bm}
+\usepackage{multicol}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{ragged2e}
+\usepackage{setspace}
+\usepackage{physics}
+\usepackage{float}
+
+\begin{document}
+\begin{titlepage} 
+   \begin{center}
+       \vspace*{2cm}
+
+       \doublespacing
+       \textbf{\Huge{Simulation of two phase quasi-static, isothermal and incompressible material with mass exchange}}
+       
+
+        \vspace{1cm}
+        
+        \Large{Simulation of Multi-Phase and Multi-scale Materials with Homogenization Approaches}
+            
+       \vspace{2.5cm}
+       
+       \Large{Submitted by }
+        \begin{center}
+         
+            \begin{tabular}{ l c } 
+            \textbf{Saif-Ur-Rehman} & \textbf{3444126}  \\ 
+            \textbf{Sherwin Rajkumar} & \textbf{3509113}  \\
+            \textbf{Nina Grözinger} & \textbf{3382725}  \\
+            \textbf{Vishal Sreenivasa} & \textbf{3509087}  \\
+            \end{tabular}
+
+            
+        \end{center}
+       \vspace{5cm}
+       
+       \Large{Feb 2023}
+            
+        
+   \end{center}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section*{\huge{Introduction}}
+\vspace{1cm}
+There are many classes of multi-phasic continuum-mechanical problems which cannot be treated under the known frameworks of classical solid or fluid mechanics. Such materials require a unified treatment of volumetrically coupled solid-fluid aggregates and can be described by Theory of Mixtures (TM) or Theory of Porous Media (TPM) \cite{deBoer2000}. Examples of multiphase materials are porous materials such as rock, soil and concrete as well as biological tissues such as bones and catrilages. Investigation of the deformation of foamed shock absorbers or automotive seat cushions and Bio-mechanical investigation of bones, cartilages or invertebral disks are some of the applications for such materials as shown in Figure \ref{fig:examples_applications}.
+\par
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.7]{Images/examples.png}
+	\caption{Examples and applications of multiphasic materials}
+	\label{fig:examples_applications}
+\end{figure}
+
+
+One has to also choose the degree of homogenization for problems concerning an immiscible mixture of a solid skeleton and a fluid pore content on the basis of continuum-mechanical method. The extent of homogenization follows cases \cite{Ehlers2002}:
+
+\begin{enumerate} 
+	\item \textbf{Micromechanical approach :} Each  individual material of the aggregate is considered as a single body. The interactions between them are also taken into account. This approach is limited by the fact that the internal geometry of porous solids is often unknown and irregular.
+	
+	\item \textbf{Macroscopical approach :}  The micro-structure of material is smeared out to obtain a statistical average of the material behaviour. This approach on the other hand uses Representative elementary Volume (REV) and requires that the subdomains are large enough for statistical statements and small enough to account for scale separation.
+	
+\end{enumerate}
+
+\vspace{1cm}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{Images/act_ref_config.png}
+	\caption{Biphasic solid-fluid aggregate with individual motion functions; reference configuration (left) and actual configuration (right) \cite{Ehlers2002}.}
+	\label{fig:continumm_mech}
+\end{figure}
+
+The advantage of micromechanical procedure lies on the fact that each individual aggregate can be described on the basis of its won motion (see Figure \ref{fig:continumm_mech}) considering known information on the constitutive assumptions of single continua mechanics. However on the other hand, one has to define convenient interaction and contact relations to catch the coupleing mechanisms at the internal interfaces.
+
+\newpage
+Homogenization leads to the axioms of classical Theory of Mixtures, which assumes heterogeneously composed continua composed of an arbitrary number of interacting constituents. The Theory of Mixtures is combined with the Concept of Volume Fractions to obtain an excellent tool for the macroscopic description of immiscible multiphasic aggregates. The approaches are shown in Figure \ref{fig:micro_vs_macro}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{Images/micro_vs_macro.png}
+	\caption{Micro- versus macroscopic view on fluid-saturated porous material.\cite{Ehlers2002}.}
+	\label{fig:micro_vs_macro}
+\end{figure}
+
+\section{\huge{Theory of porous media and concept of volume fractions}}
+
+Many solids have an internal structure and can contain open and closed pores, such as ceramics, soils, and concrete. Classical continuum mechanics cannot answer questions regarding the change of pores and different motions of liquid-saturated porous solids. Materials with empty pore spaces can be treated relatively easily because all ingredients have the same motion when deformed. However, if the porous solid is filled with liquid, the solid and liquid constituents have different motions and interact, making the description of mechanical behavior difficult. 
+
+One approach could be to separate the constituents with Euler's cut principle, but this procedure is not suitable for a general theory of saturated porous bodies because of complex internal geometric structures. Another approach is to describe liquid-saturated porous media with a substitute model of heterogeneously composed continua with internal interactions. This procedure uses volume fractions and volume porosity numbers to distribute mass over the control space. The concept of volume fractions results in substitute continua with reduced densities for the solid and liquid phases which can be treated with the methods of continuum mechanics. The theory of Mixtures, which is based on the concept of volume fractions, is the most consistently developed framework for the treatment of liquid-saturated porous solids. \cite{3}
+
+%\newpage
+Based on the assumptions of Theory of Porous Media, one  proceeds from the assumption that all \(k\) individual materials composing the  multiphasic aggregate under consideration (one porous solid skeleton and  \(k- 1\) miscible or immiscible pore-fluids) are assumed to be in a state of ideal disarrangement. This assumption together averaging process leads to a model \(\varphi\) of superimposed and interacting continua \(\varphi^\alpha\), \((\alpha = 1,....,k)\) as in Fig.3. :
+
+$$\varphi = \sum_{\alpha=1}^{k}\varphi^\alpha $$
+
+%\section{\huge{Definition of the project task}}
+
+%\section{\huge{Derivation}}
+
+
+\section{\huge{Implementation in feappv}}
+
+The given problem of TPM with mass exchange was implemented in feappv. This chapter is intended to give an insight into the code. In the following there are discussed the most relevant aspects. \\
+It should be mentioned here, that in the code the pressure is always called lambda. Additionally there is a difference from the derivation: $\hat{\rho}_{0}^{F}$ is defined as $\hat{\rho}_{0}^{F} = \frac{\frac{1}{\rho^{SR}}-\frac{1}{\rho^{FR}}}{\beta}$, that means without the pressure. When including the pressure, the code ran into NaN problems.\\
+
+The code is composed of two files: the element file and the material file. In the element file the local residual vector and the local stiffness matrix are assembled. The calculation of the residuum and the tangents, which are needed for this, is done in the material file. \\
+With the assemled residual vector and stiffness matrix and an additional input file, where the geometry, the material parameters and the boundary conditions are defined, feappv is able to calculate our solution. \\ 
+
+We start with taking a look to the material file. From the derivation we know, that there are balance equations of linear momentum, mass for the mixture and mass for the solid (see section 6??? for the discretized forms). For all of these, we need the residuum and the tangents (for the tangents see section 7???). In figure \ref{fig:res_BLM} you can see as an example the implementation of the residuum of the balance of linear momentum. The single terms of the equation are set separately as BLM1 to BLM3. If we would consider a TPM problem without mass exchange, we would not need the term BLM3. The splitting in 3 terms makes it also easier to implement the derivatives, which is shown in figure \ref{fig:tang_BLM}. For the other 2 equations (BMG and BMS) the implementation is done analogously. \\
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{Images/res_BLM.png}
+	\caption{Code fragment for the implementation of the residuum of the balance of linear momentum}
+	\label{fig:res_BLM}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{Images/tang_BLM.png}
+	\caption{Code fragment for the implementation of the tangents of the balance of linear momentum}
+	\label{fig:tang_BLM}
+\end{figure}
+
+In the element file, the residual terms and the tangents which were set in the material file, are used to assemble the local residual vector and the local stiffness matrix which build our system of equations. \\
+The assembly of the residual vector is shown in figure \ref{fig:assemble_res_vec}. It has 4 entries: 2 for the balance of linear momentum and 1 each for the balance of mass for the mixture and the balance of mass for solid. Therefore the first and second entry contain the terms of BLM, the third BMG and the fourth BMS. \\
+As you can also see, the shape functions are called by shp(index1, index2). The first index tells if it is the shape function itself (index 1 is 3) or its derivatives (index 1 is 1 for the derivative in first direction, 2 for the dervative in second direction). The second index refers to the number of the current node; all elemental nodes are passed through one after the other by means of a loop and the values are summed up. The factor dVol stands for the integration. \\
+
+\begin{figure}[H]
+
+	\centering
+	\includegraphics[scale=0.6]{Images/assemble_res_vec.png}
+	\caption{Code fragment for the implementation of the local residual vector}
+		\label{fig:assemble_res_vec}
+\end{figure}
+
+The local stiffness matrix has 9 entries, which are implemented by using the derivatives set in the tangent subroutines of the material file. Figure \ref{fig:assemble_kuu} shows the implementation of $K_{uu}$ as an example. The 8 other entries are implemented in the same way. \\
+As you can see in figure \ref{fig:precalc_shp}, the shape function products, which are used several times, are predefined. \\
+Because the terms of the stiffness matrix are dependent on two nodes, a second loop is used here. \\
+
+\begin{figure}[H]
+	
+	\centering
+	\includegraphics[scale=0.6]{Images/precalc_shp.png}
+	\caption{Code fragment for the precalculation of shape function products}
+	\label{fig:precalc_shp}
+\end{figure}
+
+\begin{figure}[H]
+
+	\centering
+	\includegraphics[scale=0.6]{Images/assemble_kuu.png}
+	\caption{Code fragment for the implementation of the local stiffness matrix - example: $K_{uu}$}
+		\label{fig:assemble_kuu}
+\end{figure}
+
+
+%\section{\huge{Results}}
+\newpage
+\bibliographystyle{plain}
+\bibliography{refrences}
+
+
+
+
+
+
+
+
+\end{document}
