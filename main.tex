@@ -108,6 +108,424 @@ $$\varphi = \sum_{\alpha=1}^{k}\varphi^\alpha $$
 
 %\section{\huge{Derivation}}
 
+%-------------------------------Vishal-------------------------%
+\section{Specifying Model Assumptions}
+
+\begin{enumerate}
+	\item Two phase model $\alpha \in \{ S, F \}$
+	\item Incompressible material
+	\begin{enumerate}
+		\item Solid Phase $(\rho^{SR})_{s}^{'} = 0$
+		\item Fluid Phase $(\rho^{FR})_{s}^{'} = 0$
+	\end{enumerate}
+	\item Both phases
+	\begin{enumerate}
+		\item Isothermal process $(\theta^{\alpha})_{\alpha}^{'} = 0$
+		\item Equal temperature in both phases, $\theta^{S}=\theta^{F}$
+		\item Quasi-static ${({\underline{\mathbf{x}}})_{\alpha}^{''}}$ = 0
+		\item no energy exchange $\mathbf{\hat{\underline{e}}}^{\alpha}=0$
+	\end{enumerate}
+\end{enumerate}
+
+\section{Field Equations}
+\subsection{Balance of Mass}
+The general form of balance of mass with mass exchange is given as
+\begin{equation*}
+	({{{n}}}^{\alpha})_{\alpha}^{'} {\rho^{\alpha R}} + {{n}^{\alpha}}{\rho^{\alpha R}}{{div}\hspace{1mm}{{\underline{{x}}}_{\alpha}^{'}}} = {\hat{\rho}}^{\alpha}
+\end{equation*}
+
+\begin{equation}
+	{\underline{Solid}}      : ({{{n}}}^{S})_{S}^{'} {\rho^{SR}} + {{n}^{S}}{\rho^{S R}}{{div}\hspace{1mm}{{\underline{{x}}}_{S}^{'}}} = {\hat{\rho}}^{S}
+\end{equation}
+
+\begin{equation}
+	{\underline{Fluid}}      : ({{{n}}}^{F})_{F}^{'} {\rho^{FR}} + {{n}^{F}}{\rho^{F R}}{{div}\hspace{1mm}{{\underline{{x}}}_{F}^{'}}} = {\hat{\rho}}^{F}
+\end{equation}
+\vspace{3mm}
+
+
+\subsection{Balance of Linear Momentum}
+The general form of balance of linear momentum is given as
+\begin{equation*}
+	{div}\vspace{1mm}{\underline{\mathbf{T}}}^{\alpha} + {\rho}^{\alpha}(\underline{b} - \cancelto{Zero from \hspace{0.5mm}3(d)}{{\underline{{x}}}_{\alpha}^{''})} + \underline{\mathbf{\hat{P}}}^{\alpha} - {\mathbf{\hat{\rho}}}^{\alpha}{\underline{{x}}}_{\alpha}^{'} = \underline{0}
+\end{equation*}
+
+\begin{equation}
+	{\underline{Solid}}      : {div}\vspace{1mm}{\underline{\mathbf{T}}}^{S} + {\rho}^{S}{\underline{b} + \underline{\mathbf{\hat{P}}}^{S}} - {\mathbf{\hat{\rho}}}^{S}{\underline{{x}}}_{S}^{'} = \underline{0}
+\end{equation}
+
+\begin{equation}
+	{\underline{Fluid}}      : {div}\vspace{1mm}{\underline{\mathbf{T}}}^{F} + {\rho}^{F}{\underline{b}  + \underline{\mathbf{\hat{P}}}^{F}} - {\mathbf{\hat{\rho}}}^{F}{\underline{{x}}}_{F}^{'} = \underline{0}
+\end{equation}
+
+\subsection{Balance of Angular Momentum}
+The general form of balance of angular momentum is given as
+\begin{equation*}
+	{\underline{\mathbf{T}}}^{\alpha} = ({\underline{\mathbf{T}}}^{\alpha})^T
+\end{equation*}
+Thus, the balance of angular momentum for solid and fluid phase is given as
+\begin{equation}
+	{\underline{Solid}}      : {\underline{\mathbf{T}}}^{S} = ({\underline{\mathbf{T}}}^{S})^T
+\end{equation}
+
+\begin{equation}
+	{\underline{Fluid}}      : {\underline{\mathbf{T}}}^{F} = ({\underline{\mathbf{T}}}^{F})^T
+\end{equation}
+
+\subsection{Interaction Forces}
+From Truesdell’s constraint to momentum production we can derive the following condition
+\begin{equation}
+	{\underline{\mathbf{\hat{P}}}^{S}} + \underline{\mathbf{\hat{P}}}^{F} = \underline{0}
+\end{equation}
+\subsection{Saturation Condition}
+From saturation condition, we get following equations
+\begin{equation}
+	{n}^{S} + {n}^{F} = 1
+\end{equation}
+
+
+\begin{equation}
+	{\underline{Solid}}      :  {n}^{S} = \frac{{\rho}^{S}}{{\rho}^{SR}}
+\end{equation}
+
+\begin{equation}
+	{\underline{Fluid}}      : {n}^{F} = \frac{{\rho}^{F}}{{\rho}^{FR}}
+\end{equation}
+\subsection{Mass Exchange}
+From Truesdell’s constraint to mass production, we can derive the following relation
+\begin{equation}
+	{\rho}^{S} + {\rho}^{F} = \underline{0}
+\end{equation}
+
+
+\section{Entropy Inequality}
+The general local entropy inequality is given as
+\begin{equation*}
+	{{\sum_{\alpha}^{{K}}}{\frac{1}{\theta^\alpha}}} \left[ {-\rho^\alpha}{((\psi^\alpha)_{\alpha}^{'}+{(\theta}^\alpha)_{\alpha}^{'})} - {\hat{\rho}^{\alpha}}({{\psi}^{\alpha} - {\frac{1}{2}}{\underline{\mathbf{x}}_{\alpha}^{'}}{\underline{\mathbf{x}}_{\alpha}^{'}}}) + {{\underline{\mathbf{T}}}^{\alpha}}{{\underline{\mathbf{D}}}_{\alpha}} - {{\underline{\hat{\mathbf{P}}}}^{\alpha}}{\underline{x}_{\alpha}^{'}} -  {\frac{1}{\theta^\alpha}{{grad\hspace{1mm}\theta}^{\alpha}{\underline{q}^\alpha}}} + {\mathbf{\hat{\underline{e}}}^{\alpha}}                        \right] \geq 0
+\end{equation*}
+
+Considering the assumptions A3,A4 and A6, as well as ignoring the square of velocity since its very small, we get the following form for the general local entropy inequality
+\begin{equation}
+	\boxed{{{\sum_{\alpha}^{{K}}}} \left[ {-\rho^\alpha}{(\psi^\alpha)_{\alpha}^{'}} - {\hat{\rho}^{\alpha}}{{\psi}^{\alpha}} + {{\underline{\mathbf{T}}}^{\alpha}}{{\underline{\mathbf{D}}}_{\alpha}} - {{\underline{\hat{\mathbf{P}}}}^{\alpha}}{\underline{x}_{\alpha}^{'}}                        \right] \geq 0 }
+\end{equation}
+
+
+\subsection{Determination of Extended Entropy Inequality and Final Entropy Inequality}
+
+\begin{equation}
+	\begin{aligned}
+		-{\rho^{S}}{(\psi^{S})_{S}^{'}}-{\rho^{F}}{(\psi^{F})_{F}^{'}} - {\hat{\rho}^{S}}{\psi^{S}} - {\hat{\rho}^{F}}{\psi^{F}} + {\underline{T}^{S}}{\underline{D}_{S}} + {\underline{T}^{F}}{\underline{D}_{F}} - {\hat{\underline{P}}^{S}}{\underline{x}_{S}^{'}}-{\hat{\underline{P}}^{F}}{\underline{x}_{F}^{'}} \\+ \lambda{\left( {n^{S}}{\underline{D}_{S}}{\underline{\mathbf{I}}} +{n^{F}}{\underline{D}_{F}}{\underline{\mathbf{I}}}+{{grad}\hspace{0.5mm}{n^{F}}{\underline{W}_{FS}}} - \frac{\hat{\rho}^{S}}{\rho^{SR}} - \frac{\hat{\rho}^{F}}{\rho^{FR}}\right)} = 0
+	\end{aligned}
+\end{equation}
+
+\begin{equation*}
+	\begin{aligned}
+		\frac{(n^{F})^2}{\alpha_{WFS}}={\frac{K_{0S}^{F}}{\gamma^{FR}}}{\left( {\frac{n^F}{n_{0S}^{F}}}\right)^{m}}
+	\end{aligned}
+\end{equation*}
+
+\begin{equation*}
+	\begin{aligned}
+		\textrm{For}\hspace{2mm}{m=0}\quad\frac{(n^{F})^2}{\alpha_{WFS}}=K_{D}
+	\end{aligned}
+\end{equation*}
+
+\begin{equation*}
+	\begin{aligned}
+		\textrm{For}\hspace{2mm}{m=0}\quad\frac{(n^{F})^2}{\alpha_{WFS}}=K_{D}
+	\end{aligned}
+\end{equation*}
+
+
+Final Entropy Inequality
+
+\begin{equation}
+	\begin{aligned}
+		{\underline{\mathbf{D}}_{S}}{({\underline{T}^{S}}+{{n^S}{\lambda}{\underline{\mathbf{I}}}}-{2}{\rho^S}{\underline{\mathbf{F}}}_{S}{\frac{\delta {\psi^S}}{\delta {\underline{\mathbf{C}}}_{S}}}{\underline{F}}_{S}^{T})}
+		+ {\underline{\mathbf{D}}_{F}}{({\underline{T}^{F}}+{{n^F}{\lambda}{\underline{\mathbf{I}}}})} 
+		\\ + {\underline{W}_{FS}}{({-\hat{\underline{P}}}^{F}+{\lambda}{grad}\hspace{0.5mm}{n^F})} +{{\hat{\rho}^F}}\left({{{\psi^S}-{\psi^F}+{{\lambda}{\rho^{SF}}}}}\right) \geq 0
+	\end{aligned}
+\end{equation}
+\newpage
+
+Thus the Restrictions from the Entropy inequality can be simplifed as,
+
+\subsubsection{Solid Stress}
+\begin{equation}
+	\underline{T}^S = {-{n^S}{\lambda}{\underline{\mathbf{I}}}} + {2}{\underline{F}_S}{\frac{\delta \psi^S}{\delta \underline{\mathbf{C}}_S}}{\underline{F}_{S}^{T}}{\rho^S}
+\end{equation}
+
+\subsubsection{Fluid Stress}
+\begin{equation}
+	\underline{T}^F = {-{n^F}{\lambda}{\underline{\mathbf{I}}}}
+\end{equation}
+
+\subsubsection{Total Stress}
+\begin{equation}
+	\underline{\mathbf{T}} = {-{P}\underline{\mathbf{I}}} + {\underline{T}_{E}^{S}} 
+\end{equation}
+
+\subsubsection{Dissipation}
+\begin{equation}
+	\mathbb{D} = {\underline{W}}_{FS}{(-{\hat{\underline{P}}^F}+{P\hspace{0.5mm}grad\hspace{0.5mm}{n^F}})} + {{{\hat{\rho}^F}}\left({{{\psi^S}-{\psi^F}+{\rho^{SF}{P}}}}\right) }    \geq 0
+\end{equation}
+
+
+
+\section{Constitutive Relations}
+\subsection{ Neo-Hookean Hyperelasticity model (Helmholtz free Energy)}
+From the Helmholtz free energy function,
+\begin{equation}
+	{\psi^S}={\frac{1}{\rho_{OS}^{S}}}\left({{{\frac{1}{2}}{\mu^S}{({\mathbf{I}_{1}}-{3})}}-{\mu^S}{ln\mathbf{J}_S}+{\frac{\lambda^S}{2}}{(ln\mathbf{J}_S)^2}}\right)
+\end{equation}
+with Invariant $\mathbf{I}_1 = tr\hspace{0.5mm}\underline{\mathbf{C}}_S$ leads to
+\begin{equation*}
+	{\underline{\mathbf{T}}_{E}^{S} = {\frac{1}{\mathbf{J}_S}}{({2{\mu^{S}}{\underline{\mathbf{K}}_S}}+{{\lambda^S}{ln \mathbf{J}_S}{\underline{\mathbf{I}}}})}}
+\end{equation*}  
+
+\textrm{with}
+
+\begin{equation}   
+	{ \quad{\underline{\mathbf{K}}_S}=\frac{1}{2}{(\underline{\mathbf{B}}_{S}-{\underline{I}})} = \frac{1}{2}{({\underline{\mathbf{F}}_{S}}{\underline{\mathbf{F}}_{S}^{T}}-{\underline{\mathbf{I}}})}}
+\end{equation}
+\textrm{where, K̰s is Euler Karni-Reiner Strain Tensor and B̰s is Left Cauchy-Green Strain Tensor}
+
+\subsection{Viscous pore-fluid (Barotropic fluid behaviour)}
+\begin{equation}
+	{\psi^F}{(\rho^{FR})}= {\frac{\mathcal{R}\theta}{\mathcal{M}_{m}^{F}}}{ln {\rho^{FR}}}
+\end{equation}
+where
+\begin{equation*}
+	\mathcal{R} - \textrm{Universal gas constant}
+\end{equation*}
+\begin{equation*}
+	{\mathcal{M}_{m}^{F}} - \textrm{Molar mass of considered fluid}
+\end{equation*}
+\begin{equation*}
+	\theta^\alpha \equiv \theta = \textrm{Constant (Isothermal)}
+\end{equation*}
+We know that ${\rho^{FR}} = \frac{\rho^F}{n^F}$
+\begin{equation}
+	\boxed{{{\psi^F}}={\nu^{F}}{ln \left({\rho^{FR}}\right)}}
+\end{equation}
+
+\subsection{Total Stress}
+The Second Piola-Kirchoff stress is given by 
+\begin{equation*}
+	\underline{S} = {{J}_S}{\underline{F}_{S}^{-1}}{\underline{T}}\hspace{0.5mm}
+	{\underline{F}^{T-1}}
+\end{equation*}
+\begin{equation}
+	\boxed{\underline{S} = {{2}{\mu^S}{\underline{K}_{S}^{R}}} + {({\lambda^S}ln{{J}_{S}}-{{J}_{S}}{P})}{\underline{\mathbf{C}}_{S}^{-1}}}
+\end{equation}
+\subsection{Dissipation}
+\begin{equation}
+	\hat{\underline{P}}^{F} = {P \hspace{0.5mm}grad\hspace{0.5mm}n^F} - {{\alpha}_{WFS}}{\underline{W}_{FS}}   
+\end{equation}
+
+\subsection{Evaluation of the filter velocity }
+\begin{equation}
+	{n^F}{\underline{W}_{FS}} = {K_{D}}{\left[{-grad\hspace{0.5mm}P}+{\rho^{FR}}{\underline{b}}-{{\frac{\hat{\rho}^F}{n^F}}{\underline{x}_{F}^{'}}}\right]}
+\end{equation}
+\subsection{Second Dissipation Inequality}
+Second dissipation inequality is fulfilled by 
+\begin{equation}
+	\hat{\rho}^F = {\frac{1}{\beta_{F}}}\left[{{\psi^S}-{\psi^F}+{\rho^{SF}}{P}}\right]
+\end{equation}
+
+\section{Linearized Weak Forms}
+\subsection{Balance of Linear Momentum}
+\vspace{2mm}
+The geometrically & materially linearized balance of linear momentum for the mixture without mass exchange is given by,(for further details refer to the derivation in appendix)
+\begin{equation}
+	\begin{aligned}
+		Lin\hspace{0.5mm}{\mathbf{G}_{BLM}}=\int_{\mathbf{B}_{OS}}{\underline{S}_{Lin}}{\delta \underline{\varepsilon}_S}\hspace{0.5mm}{d{V_{OS}}}
+		-\int_{\mathbf{B}_{OS}}{({{n^S}{\rho^{SR}}-{{n^S}{\rho^{FR}}}){\underline{b}}\hspace{0.5mm}{J_{S,Lin}}{\delta {\underline{u}}_{S}}\hspace{0.5mm}{d{V_{OS}}}}}\\
+		+ \int_{\mathbf{B}_{OS}}{Lin\hspace{0.5mm}({\hat{\rho}}_{0}\hspace{0.5mm}{\underline{W}_{FS0}})}{\delta {\underline{u}}_{S}}\hspace{0.5mm}{d{V_{OS}}}
+		- \int_{\mathbf{\delta B}_{OS}}{\underline{S}_{Lin}}{\delta \underline{u}_S}\hspace{0.5mm}{\underline{N}}{d{A_{OS}}} = 0
+	\end{aligned}
+\end{equation}
+
+\subsection{Balance of mass with mass exchange}
+\vspace{5mm}
+The geometrically & materially linearized balance of mass with mass exchange is given by,(for further details refer to the derivation in appendix)
+\begin{equation}
+	\begin{aligned}
+		Lin\hspace{0.5mm}{\mathbf{G}_{BM}}=\int_{\mathbf{B}_{OS}}{-{Lin\hspace{0.5mm}({n_{0}^{F}}\hspace{0.5mm}{\underline{W}_{FS0}})}\hspace{0.5mm}{Grad\hspace{0.5mm}\delta P}\hspace{0.5mm}{d{V_{OS}}}} + \int_{\mathbf{B}_{OS}}{tr\hspace{0.5mm}(\Dot{\underline{\varepsilon}}_{S0})}{\delta P}{d{V_{OS}}}\\ 
+		+ \int_{\mathbf{B}_{OS}}{\rho^{SF}}{Lin\hspace{0.5mm}{({\hat{\rho}^{F}}{J_{S}})}}{\delta P}\hspace{0.5mm}{d{V_{OS}}}+ \int_{\mathbf{\delta B}_{OS}}{Lin\hspace{0.5mm}(n^{F}_{0}\hspace{0.5mm}{\underline{W}_{FS0}})}\hspace{0.5mm}{\delta P}{\underline{N}}{d{A_{OS}}} = 0
+	\end{aligned}
+\end{equation}
+
+
+\subsection{Solid Mass Balance}
+\vspace{5mm}
+The geometrically & materially linearized balance of mass for solid is given by,(for further details refer to the derivation in appendix)
+\begin{equation}
+	\begin{aligned}
+		Lin\hspace{0.5mm}{G_{SBM}}=\int_{\mathbf{B}_{OS}}{\hspace{0.5mm}({n^{S}}{Div\hspace{0.5mm}\underline{x}_{S0}^{'}} + \underline{x}_{S0}^{'}} {Grad \hspace{0.5mm} n^{S}}){dV_{0S}}\delta {n^{S} - \int_{\mathbf{B}_{OS}}{\frac{\delta {n^{S}}}{\delta t}}{J_{S,Lin}}{\delta n^{S}}{dV_{0S}}\\ + \int_{\mathbf{B}_{OS}}{\frac{\rho^{F}}{\rho^{SR}}}{\hspace{0.5mm}{{J_{S}}}}{\delta n^{S}}{dV_{0S}} }= 0
+	\end{aligned}    
+\end{equation}
+\newpage
+\section{Discretized forms}
+
+\vspace{5mm}
+4 Noded 2D elements are employed for the solution methodology thus the discretization is carried out employing the Shape functions and respective derivatives of the above shape functions. The N and B matrices referenced from hence forth correspond to those of a 4 Noded 2D element. (for further details of the discretization scheme to the derivation in appendix)
+\subsection{Discretized Balance of linear momentum for mixture}
+\begin{equation}
+	\begin{aligned}
+		D\hspace{0.5mm}{\mathbf{G}_{BLM}}={{\sum_{I}}{(\delta d \underline{u}_{S}^{I})^{T}}}\int_{\mathbf{B}_{OS}}{{({\underline{B}_{\underline{u}_{S}}^{I}})^{T}}{\underline{S}_{Lin}}{dV_{0S}}} - {{\sum_{I}}{(\delta d \underline{u}_{S}^{I})^{T}}}\int_{\mathbf{B}_{OS}}{N_{I}}{{\left[{{n^S}{{\rho^{SR}}+{n^F}{\rho^{FR}}}}   \right]}{{\underline{b}}\hspace{0.5mm} \hspace{0.5mm}{d{V_{OS}}}}}\\
+		+ {{\sum_{I}}{(\delta d \underline{u}_{S}^{I})^{T}}}\int_{\mathbf{B}_{OS}}{N_{I}}{Lin\hspace{0.5mm}({\hat{\rho}}_{0}\hspace{0.5mm}{\underline{W}_{FS0}})}\hspace{0.5mm}{d{V_{OS}}}
+		- {{\sum_{I}}{(\delta d \underline{u}_{S}^{I})^{T}}}{N_{I}}\int_{\mathbf{\delta B}_{OS}}{\underline{S}_{Lin}}\hspace{0.5mm}{\underline{N}}{d{A_{OS}}} = 0
+	\end{aligned}
+\end{equation}
+\subsection{Discretized balance of mass for mixture}
+\begin{equation}
+	\begin{aligned}
+		D\hspace{0.5mm}{\mathbf{G}_{BM}}=-{{\sum_{I}}{({\delta dp}^{I})^{T}}}\int_{\mathbf{B}_{OS}}{{({\underline{B}_{P}^{I}})^{T}}}{{Lin\hspace{0.5mm}({n_{0}^{F}}\hspace{0.5mm}{\underline{W}_{FS0}})}\hspace{0.5mm}\hspace{0.5mm}{d{V_{OS}}}}\\ + {{\sum_{I}}{({\delta dp}^{I})^{T}}}\int_{\mathbf{B}_{OS}}{N_{I}}{tr\hspace{0.5mm}(\Dot{\underline{\varepsilon}}_{S0})}{d{V_{OS}}}\\ 
+		+ {{\sum_{I}}{({\delta dp}^{I})^{T}}}\int_{\mathbf{B}_{OS}}{N_{I}}\left[{\rho^{SF}}{\frac{({\rho^{SF}}{P}-{\psi^F})}{\beta_{F}}}{(1+tr\hspace{0.5mm}\varepsilon_{S})}\right]{J_{S,Lin}}{d{V_{OS}}} \\+ {{\sum_{I}}{({\delta dp}^{I})^{T}}}\int_{\mathbf{\delta B}_{OS}}{N_{I}}{Lin\hspace{0.5mm}({{n^{F}_{0}}\hspace{0.5mm}{\underline{W}_{FS0}})}\hspace{0.5mm}{\underline{N}}{d{A_{OS}}}} = 0
+	\end{aligned}
+\end{equation}
+
+\subsection{Discretized balance of mass for Solid}
+\begin{equation*}
+	D\hspace{0.5mm}{\mathbf{G}_{BM}} = {{\sum_{I}}{{{\delta d}{n}^{S}}^{I}}}\int_{\mathbf{\delta B}_{OS}}{{N_{I}{n^S}}{tr\hspace{0.5mm}(\Dot{\underline{\varepsilon}}_{S})}{d{V_{OS}}} + {{\sum_{I}}{{{\delta d}{n}^{S}}^{I}}}\int_{\mathbf{B}_{OS}}{N_{I}}\left[\frac{\delta n^{S}}{\delta t}+\frac{({\rho^{SF}}{P}-{\psi^{F}})}{{\rho^{SR}}{\beta_{f}}}\right]{J_{S,Lin}}{d{V_{OS}}}\\ 
+	\end{equation*}
+	\begin{equation}
+		+ {{\sum_{I}}{{{\delta d}{n}^{S}}^{I}}}\int_{\mathbf{\delta B}_{OS}}{N_{I}}{{\underline{x}_{S}^{I}}}Grad({n^S}){d{V_{OS}}}
+	\end{equation}
+	\newpage
+	\section{Tangent Moduli}
+	\subsection{Balance of linear Momentum}
+	\begin{equation*}
+		\begin{aligned}
+			\Delta D_{BLM, \underline{u}_{S}} = 0
+		\end{aligned}
+	\end{equation*}
+	
+	\begin{equation*}
+		\Delta D_{BLM, {Grad_{S}}\underline{u}_{S}} = \sum_{I}\sum_{J}{(\delta d \underline{u}_{S}^{I})^{T}}\int_{\mathbf{B}_{OS}}{N_{I}}{\frac{\delta (Lin\hspace{0.5mm} ({\hat{\rho}_{0}^{F}}\hspace{0.5mm}{\underline{W}_{FS0}}))}{\delta {Grad_{S}}\underline{u}_{S} }}{\underline{N}_{{J},{\underline{X}}}}{dV_{0S}}{\Delta d\underline{u}_{S}^{J}}
+	\end{equation*}
+	
+	\begin{equation*}
+		\begin{aligned}
+			\Delta D_{BLM, \underline{\varepsilon}_{S}} = \sum_{I}\sum_{J}{(\delta d \underline{u}_{S}^{I})^{T}}\int_{\mathbf{B}_{OS}}{\frac{\delta \underline{S}_{Lin}}{\delta \underline{\varepsilon}_{S}}}{({\underline{B}_{\underline{u}_{S}}^{J}})}{dV_{0S}}{\Delta d\underline{u}_{S}^{J}}\\ + \sum_{I}\sum_{J}{(\delta d \underline{u}_{S}^{I})^{T}}\int_{\mathbf{B}_{OS}}{N_{I}}{\frac{{\left[{({{n^S}{{\rho^{SR}}+{n^F}{\rho^{FR}}}})}  {\underline{b}}{J_{S, Lin}}    \right]}}{\delta \underline{\varepsilon}_{S}}}{({\underline{B}_{\underline{u}_{S}}^{J}})}{dV_{0S}}{\Delta d\underline{u}_{S}^{J}}\\+
+			\sum_{I}\sum_{J}{(\delta d \underline{u}_{S}^{I})^{T}}\int_{\mathbf{B}_{OS}}{N_{I}}{{\frac{\delta (Lin\hspace{0.5mm} ({\hat{\rho}_{0}^{F}}\hspace{0.5mm}{\underline{W}_{FS0}}))}{\delta \underline{\varepsilon}_{S}}}}{({\underline{B}_{\underline{u}_{S}}^{J}})}{dV_{0S}}{\Delta d\underline{u}_{S}^{J}}
+		\end{aligned}
+	\end{equation*}
+	
+	\begin{equation*}
+		\begin{aligned}
+			\Delta D_{BLM, P}=\sum_{I}\sum_{J}{(\delta d \underline{u}_{S}^{I})^{T}}\int_{\mathbf{B}_{OS}}{\frac{\delta \underline{S}_{Lin}}{\delta P}}({\underline{B}_{\underline{u}_{S}}^{J}}){{N_{J}}}{dV_{0S}}{\Delta  dP^{J}}\\ +\sum_{I}\sum_{J}{(\delta d \underline{u}_{S}^{I})^{T}}\int_{\mathbf{B}_{OS}}{N_{I}}{{\frac{\delta (Lin\hspace{0.5mm} ({\hat{\rho}_{0}^{F}}\hspace{0.5mm}{\underline{W}_{FS0}}))}{\delta P}}}{{N_{J}}}{dV_{0S}}{\Delta  dP^{J}}
+		\end{aligned}    
+	\end{equation*}
+	
+	\begin{equation*}
+		\begin{aligned}
+			\Delta D_{BLM, {Grad_{S}}P} = \sum_{I}\sum_{J}{(\delta d \underline{u}_{S}^{I})^{T}}\int_{\mathbf{B}_{OS}}{N_{I}}{\frac{\delta (Lin\hspace{0.5mm} ({\hat{\rho}_{0}^{F}}\hspace{0.5mm}{\underline{W}_{FS0}}))}{\delta {Grad_{S}}P}}{\underline{B}_{P}^{J}}{dV_{0S}}{\Delta  dP^{J}}
+		\end{aligned}
+	\end{equation*}
+	
+	\begin{equation*}
+		\begin{aligned}
+			\Delta D_{BLM, n^{S}} = - \sum_{I}\sum_{J}{(\delta d \underline{u}_{S}^{I})^{T}}\int_{\mathbf{B}_{OS}}{N_{I}}{\frac{{\left[{{\rho^{FR}}+{n^S}{({\rho^{SR}}-{\rho^{FR}})}}{\underline{b}}{J_{S, Lin}}    \right]}}{\delta n^{S}}}{N_{J}}{dV_{0S}}{\Delta d{n^S}^{J}}\\+
+			\sum_{I}\sum_{J}{(\delta d \underline{u}_{S}^{I})^{T}}\int_{\mathbf{B}_{OS}}{N_{I}}{{\frac{\delta (Lin\hspace{0.5mm} ({\hat{\rho}_{0}^{F}}\hspace{0.5mm}{\underline{W}_{FS0}}))}{\delta \underline{\varepsilon}_{S}}}}{N_{J}}{dV_{0S}}{\Delta d{n^S}^{J}}
+		\end{aligned}
+	\end{equation*}
+	
+	\begin{equation*}
+		\begin{aligned}
+			\Delta D_{BLM, {Grad_{S}}\underline{n}_{S}} = 0
+		\end{aligned}
+	\end{equation*}
+	
+	\newpage
+	\subsection{Balance of Mass}
+	\begin{equation*}
+		\begin{aligned}
+			\Delta D_{BM, \underline{u}_{S}} = 0
+		\end{aligned}
+	\end{equation*}
+	\begin{equation*}
+		\begin{aligned}
+			\Delta D_{BM, {Grad_{S}}\underline{u}_{S}} = \sum_{I}\sum_{J}{\delta dP^{I}}\int_{\mathbf{B}_{OS}}{{(\underline{B}_{P}^{I})^{T}}}{\frac{\delta (-Lin\hspace{0.5mm} ({n_{0}^{F}}\hspace{0.5mm}{\underline{W}_{FS0}}))}{\delta {Grad_{S}}\underline{u}_{S} }}{\underline{N}_{{J},{\underline{X}}}}{dV_{0S}}{\Delta d\underline{u}_{S}^{J}} \\ +
+			\sum_{I}\sum_{J}{\delta dP^{I}}\int_{\mathbf{B}_{OS}}{{N_{I}}}{\frac{\delta ({\frac{1}{\Delta t}}{Grad_{S}{({\underline{u}_{S}}-{\underline{u}_{s,t}})}}{\underline{\mathbf{I}}})}{\delta {Grad_{S}}}}{\underline{N}_{{J},{\underline{X}}}}{dV_{0S}}{\Delta d\underline{u}_{S}^{J}}
+		\end{aligned}
+	\end{equation*}
+	
+	\begin{equation*}
+		\begin{aligned}
+			\Delta D_{BM,  \underline{\varepsilon}_{S}}=\sum_{I}\sum_{J}{\delta dP^{I}}\int_{\mathbf{B}_{OS}}{{(\underline{B}_{P}^{I})^{T}}}{\frac{\delta (-Lin\hspace{0.5mm} ({n_{0}^{F}}\hspace{0.5mm}{\underline{W}_{FS0}}))}{\delta \underline{\varepsilon}_{S} }}{\underline{B}_{\underline{u}_{S}}^{J}}{dV_{0S}}{\Delta d\underline{u}_{S}^{J}}\\ + \sum_{I}\sum_{J}{\delta dP^{I}}\int_{\mathbf{B}_{OS}}{N_{I}}\left[{\frac{({\rho^{SF}}{P}-{\psi^F})}{{\delta \underline{\varepsilon}_{S} }\beta_{F}}}{\rho^{SF}}\right]{\underline{B}_{\underline{u}_{S}}^{J}}{dV_{0S}}{\Delta d\underline{u}_{S}^{J}}
+		\end{aligned}    
+	\end{equation*}
+	
+	\begin{equation*}
+		\begin{aligned}
+			\Delta D_{BM,P}=\sum_{I}\sum_{J}{\delta dP^{I}}\int_{\mathbf{B}_{OS}}{{(\underline{B}_{P}^{I})^{T}}{\rho^{FR}}}{\frac{\delta (-Lin\hspace{0.5mm} ({n_{0}^{F}}\hspace{0.5mm}{\underline{W}_{FS0}}))}{\delta P }}{\underline{N}_{J}}{dV_{0S}}{\Delta dP^{I}}\\ + \sum_{I}\sum_{J}{\delta dP^{I}}\int_{\mathbf{B}_{OS}}{N_{I}}{\delta\left[{\frac{({\rho^{SF}}{P}-{\psi^F})}{{\delta \underline{P} }\beta_{F}}}{\rho^{SF}}\right]}{{\underline{N}_{J}}}{dV_{0S}}{\Delta dP^{I}}			
+		\end{aligned}    
+	\end{equation*}
+	
+	\begin{equation*}
+		\begin{aligned}
+			\Delta D_{BM,  {Grad_{S}}P}=\sum_{I}\sum_{J}{\delta dP^{I}}\int_{\mathbf{B}_{OS}}{{(\underline{B}_{P}^{I})^{T}}{\rho^{FR}}}{\frac{\delta (-Lin\hspace{0.5mm} ({n_{0}^{F}}\hspace{0.5mm}{\underline{W}_{FS0}}))}{\delta {Grad_{S}}P }}{\underline{B}_{P}^{J}}{dV_{0S}}{\Delta dP^{J}}
+		\end{aligned}    
+	\end{equation*}
+	
+	\begin{equation*}
+		\begin{aligned}
+			\Delta D_{BM,  n^{S}}=\sum_{I}\sum_{J}{\delta dP^{I}}\int_{\mathbf{B}_{OS}}{{(\underline{B}_{P}^{I})^{T}}{\rho^{FR}}}{\frac{\delta (-Lin\hspace{0.5mm} ({n_{0}^{F}}\hspace{0.5mm}{\underline{W}_{FS0}}))}{\delta n^{S}}}{N_{J}}{dV_{0S}}{\Delta d{n^{S}}^{J}}
+		\end{aligned}    
+	\end{equation*}
+	
+	\begin{equation*}
+		\begin{aligned}
+			\Delta D_{BM,  {Grad_{S}}{n^{S}}}=0
+		\end{aligned}    
+	\end{equation*}
+	
+	
+	\subsection{Solid Mass Balance}
+	\begin{equation*}
+		\begin{aligned}
+			\Delta DG_{SBM, \underline{u}^{S}}=\sum_{I}\sum_{J}{\delta d{n^S}^{I}}\int_{\mathbf{B}_{OS}}{\underline{N}_{I}}{\frac{\delta ({\underline{x}_{s}^{'}})}{\delta \underline{u}_{S}}{Grad_{S}}({\underline{n}_{S}}){\underline{N}_{J}}{dV_{0S}}{\Delta d{u}^{J}}}
+		\end{aligned}    
+	\end{equation*}
+	
+	\begin{equation*}
+		\begin{aligned}
+			\Delta DG_{SBM, {Grad_{S}}{\underline{u}_{S}}}= \sum_{I}\sum_{J}{\delta d{n^S}^{I}}\int_{\mathbf{B}_{OS}}{\underline{N}_{I}}{{\frac{{tr\hspace{0.5mm}(\delta\Dot{\underline{\varepsilon}}_{S})}}{\delta{Grad_{S}}({\underline{n}_{S}})}{\underline{N}_{J}}{dV_{0S}}{\Delta d{u}^{J}}}}
+		\end{aligned}    
+	\end{equation*}
+	
+	\begin{equation*}
+		\begin{aligned}
+			\Delta DG_{SBM, \underline{\varepsilon_{S}}}=\sum_{I}\sum_{J}{\delta d{n^S}^{I}}\int_{\mathbf{B}_{OS}}{N_{I}}{\frac{\left(\left[\frac{\delta n^{S}}{\delta t}+\frac{({\rho^{SF}}{P}-{\psi^{F}})}{{\rho^{SR}}{\beta_{f}}}\right]{J_{S,Lin}}\right)}{\delta \underline{\varepsilon}_{S}}}{\underline{B}_{\underline{u}_{S}}^{J}}{dV_{0S}}{\Delta d\underline{u}_{S}^{J}}
+		\end{aligned}    
+	\end{equation*}
+	
+	\begin{equation*}
+		\begin{aligned}
+			\Delta DG_{SBM, P}=\sum_{I}\sum_{J}{\delta d{n^S}^{I}}\int_{\mathbf{B}_{OS}}{N_{I}}{\frac{\left(\left[\frac{\delta n^{S}}{\delta t}+\frac{({\rho^{SF}}{P}-{\psi^{F}})}{{\rho^{SR}}{\beta_{f}}}\right]{J_{S,Lin}}\right)}{\delta P}}{N_{J}}{dV_{0S}}{\Delta d\underline{P}^{J}}
+		\end{aligned}    
+	\end{equation*}
+	
+	\begin{equation*}
+		\begin{aligned}
+			\Delta DG_{SBM, {Grad_{S}}{P}}=0
+		\end{aligned}    
+	\end{equation*}
+	
+	\begin{equation*}
+		\begin{aligned}
+			\Delta DG_{SBM, {Grad_{S}}{n^S}}=\sum_{I}\sum_{J}{\delta d{n^S}^{I}}\int_{\mathbf{B}_{OS}}{{\underline{N}_{I}}}{\frac{{\delta ({\underline{x}_{s}^{'}})}{Grad({\underline{n}_{S}})}}{\delta n^{S}}}{\underline{B}_{\underline{n}_{S}}^{J}}{dV_{0S}}{\Delta d{n^S}^{J}} \\
+		\end{aligned}    
+	\end{equation*}
+	
+	\begin{equation*}
+		\begin{aligned}
+			\Delta DG_{SBM, {n^S}}=\sum_{I}\sum_{J}{\delta d{n^S}^{I}}\int_{\mathbf{B}_{OS}}{{\underline{N}_{I}}}{\frac{\delta ({n^S}{tr\hspace{0.5mm}(\Dot{\underline{\varepsilon}}_{S})})}{\delta n^{S}}}{\underline{N}_{J}}{dV_{0S}}{\Delta d{n^S}^{J}} \\+ \sum_{I}\sum_{J}{\delta d{n^S}^{I}}\int_{\mathbf{B}_{OS}}{N_{I}}{\frac{\left(\left[\frac{\delta n^{S}}{\delta t}+\frac{({\rho^{SF}}{P}-{\psi^{F}})}{{\rho^{SR}}{\beta_{f}}}\right]{J_{S,Lin}}\right)}{\delta n^{S}}}{N_{J}}{dV_{0S}}{\Delta d{n^S}^{J}}
+		\end{aligned}    
+	\end{equation*}
+
 
 \section{\huge{Implementation in feappv}}
 
@@ -117,7 +535,7 @@ It should be mentioned here, that in the code the pressure is always called lamb
 The code is composed of two files: the element file and the material file. In the element file the local residual vector and the local stiffness matrix are assembled. The calculation of the residuum and the tangents, which are needed for this, is done in the material file. \\
 With the assemled residual vector and stiffness matrix and an additional input file, where the geometry, the material parameters and the boundary conditions are defined, feappv is able to calculate our solution. \\ 
 
-We start with taking a look to the material file. From the derivation we know, that there are balance equations of linear momentum, mass for the mixture and mass for the solid (see section 6??? for the discretized forms). For all of these, we need the residuum and the tangents (for the tangents see section 7???). In figure \ref{fig:res_BLM} you can see as an example the implementation of the residuum of the balance of linear momentum. The single terms of the equation are set separately as BLM1 to BLM3. If we would consider a TPM problem without mass exchange, we would not need the term BLM3. The splitting in 3 terms makes it also easier to implement the derivatives, which is shown in figure \ref{fig:tang_BLM}. For the other 2 equations (BMG and BMS) the implementation is done analogously. \\
+We start with taking a look to the material file. From the derivation we know, that there are balance equations of linear momentum, mass for the mixture and mass for the solid (see section 6 for the discretized forms). For all of these, we need the residuum and the tangents (for the tangents see section 8). In figure \ref{fig:res_BLM} you can see as an example the implementation of the residuum of the balance of linear momentum. The single terms of the equation are set separately as BLM1 to BLM3. If we would consider a TPM problem without mass exchange, we would not need the term BLM3. The splitting in 3 terms makes it also easier to implement the derivatives, which is shown in figure \ref{fig:tang_BLM}. For the other 2 equations (BMG and BMS) the implementation is done analogously. \\
 
 \begin{figure}[H]
 	\centering
